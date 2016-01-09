@@ -18,7 +18,7 @@ from .dispatch import RequestsDispatcher
 from . import auth
 from .exceptions import (InvalidIdentity, APIException)
 from . import models
-from .utils import check_status
+from .utils import check_status, probably_scene_id
 
 
 class Client(object):
@@ -104,12 +104,22 @@ class Client(object):
         :param str order_by: Results order 'acquired asc' or 'acquired desc'.
            Defaults to 'acquired desc'
         :param int count: Number of results per page. Defaults to 50.
-        :param intersects: A geometry to filter results by. Can be one of:
-           WKT or GeoJSON text or a GeoJSON-like dict.
+        :param intersects: A geometry or scene id to filter results by. Can
+           be one of:
+           WKT or GeoJSON text, a GeoJSON-like dict, or a scene id string.
         :param filters: Zero or more metadata filters in the form of
            param.name.comparison -> value.
         :returns: :py:class:`Scenes` body
         '''
+        # check whether you've actually got a scene id for intersection
+        if intersects:
+            sid = probably_scene_id(intersects)
+            # if so, replace the 'intersects' value with the footprint
+            # of the scene
+            if sid:
+                meta = self.get_scene_metadata(intersects)
+                intersects = meta['geometry']
+
         params = {
             'order_by': order_by,
             'count': count,

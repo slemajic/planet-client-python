@@ -69,3 +69,32 @@ def test_probably_geojson():
     # yep
     assert utils.probably_geojson({'type': 'Point'}) == {'type': 'Point'}
     assert utils.probably_geojson('{"type": "Point"}') == {'type': 'Point'}
+
+
+def test_probably_scene_id():
+
+    # slightly wrong ortho
+    assert utils.probably_scene_id('20150306_022415_090') is False
+    assert utils.probably_scene_id('2150306_022415_0908') is False
+    assert utils.probably_scene_id('20150306_02d415_0908') is False
+
+    # slightly wrong landsat
+    assert utils.probably_scene_id('LC80440342013170LGN0') is False
+    assert utils.probably_scene_id('LC80440342013170LN00') is False
+    assert utils.probably_scene_id('LC8044034d013170LGN00') is False
+
+    # slightly wrong rapideye
+    result = utils.probably_scene_id('2015018_194215_1056018_RapidEye-4')
+    assert result is False
+    result = utils.probably_scene_id('2015d918_194215_1056018_RapidEye-4')
+    assert result is False
+    utils.probably_scene_id('20150918_19415_1056018_RapidEye-4')
+    assert result is False
+    result = utils.probably_scene_id('20150918_19415_1056018_RapidEye-16000')
+    assert result is False
+
+    # ok
+    assert utils.probably_scene_id('20150306_022415_0908')
+    assert utils.probably_scene_id('20150306_022415_12_0908')
+    assert utils.probably_scene_id('LC80440342013170LGN00')
+    assert utils.probably_scene_id('20150918_194215_1056018_RapidEye-4')

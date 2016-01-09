@@ -190,6 +190,27 @@ def probably_geojson(input):
     return input if valid else None
 
 
+def probably_scene_id(intersect_str):
+    '''Check whether a string is a valid scene id.
+    Regex developed & tested at http://pythex.org'''
+    # Sample scene ids:
+    # Planet ortho: 20150306_022415_0908 or 20150306_022415_12_0908
+    # Landsat: LC80440342013170LGN00
+    # Rapideye: 20150918_194215_1056018_RapidEye-4
+    ortho = '^\d{8}_\d{6}_(\d{1,2}_)?\w{4}$'
+    landsat = '^LC\d{14}LGN\w{2}$'
+    rapideye = '^\d{8}_\d{6}_\d{7}_RapidEye-\d$'
+
+    if re.match(ortho, intersect_str):
+        return 'ortho'
+    elif re.match(landsat, intersect_str):
+        return 'landsat'
+    elif re.match(rapideye, intersect_str):
+        return 'rapideye'
+    else:
+        return False
+
+
 def complete(futures, check, client):
     '''Wait for the future requests to complete without blocking the main
     thread. This is a means to intercept a KeyboardInterrupt and gracefully
