@@ -85,7 +85,7 @@ class Client(object):
             try:
                 msg = json.loads(result.text)['message']
             finally:
-                raise InvalidIdentity(msg)
+                raise InvalidIdentity(msg) 
         elif status != 200:
             raise APIException('%s: %s' % (status, result.text))
         jwt = result.text

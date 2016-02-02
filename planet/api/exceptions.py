@@ -49,3 +49,9 @@ class InvalidIdentity(APIException):
 
 class RequestCancelled(Exception):
     '''When requests get cancelled'''
+
+
+class Unavailable(APIException):
+    '''When the server was too busy, over quota, or otherwise did not finish
+    processing the request.'''
+    pass

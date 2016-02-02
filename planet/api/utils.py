@@ -115,7 +115,8 @@ def check_status(response):
         403: exceptions.NoPermission,
         404: exceptions.MissingResource,
         429: exceptions.OverQuota,
-        500: exceptions.ServerError
+        500: exceptions.ServerError,
+        500: exceptions.Unavailable
     }.get(status, None)
 
     if exception:
