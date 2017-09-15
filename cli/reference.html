@@ -93,18 +93,6 @@
 </div>
 <div class="section" id="option-types-formatting">
 <h2>Option Types Formatting<a class="headerlink" href="#option-types-formatting" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="asset-type">
-<span id="cli-metavar-asset-type"></span><h3>ASSET-TYPE<a class="headerlink" href="#asset-type" title="Permalink to this headline">¶</a></h3>
-<p>Specify Asset-Type(s) of interest. Case-insenstive,
-supports glob-matching, e.g. <code class="docutils literal"><span class="pre">visual*</span></code> specifies <code class="docutils literal"><span class="pre">visual</span></code> and
-<code class="docutils literal"><span class="pre">visual_xml</span></code>.</p>
-</div>
-<div class="section" id="item-type">
-<span id="cli-metavar-item-type"></span><h3>ITEM-TYPE<a class="headerlink" href="#item-type" title="Permalink to this headline">¶</a></h3>
-<p>Specify Item-Type(s) of interest. Case-insensitive,
-supports glob-matching, e.g. <code class="docutils literal"><span class="pre">psscene*</span></code> means <code class="docutils literal"><span class="pre">PSScene3Band</span></code> and
-<code class="docutils literal"><span class="pre">PSScene4Band</span></code>. The <code class="docutils literal"><span class="pre">all</span></code> value specifies every Item-Type.</p>
-</div>
 <div class="section" id="filter">
 <span id="cli-metavar-filter"></span><h3>FILTER<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
 <p>Specify a Data API search filter provided as JSON.
@@ -131,6 +119,18 @@ the number or date to compare against.</p>
 <p>Note: ISO-8601 variants are supported. For example, <code class="docutils literal"><span class="pre">2017</span></code> is short for
 <code class="docutils literal"><span class="pre">2017-01-01T00:00:00+00:00</span></code>.</p>
 </div>
+<div class="section" id="asset-type">
+<span id="cli-metavar-asset-type"></span><h3>ASSET-TYPE<a class="headerlink" href="#asset-type" title="Permalink to this headline">¶</a></h3>
+<p>Specify Asset-Type(s) of interest. Case-insenstive,
+supports glob-matching, e.g. <code class="docutils literal"><span class="pre">visual*</span></code> specifies <code class="docutils literal"><span class="pre">visual</span></code> and
+<code class="docutils literal"><span class="pre">visual_xml</span></code>.</p>
+</div>
+<div class="section" id="item-type">
+<span id="cli-metavar-item-type"></span><h3>ITEM-TYPE<a class="headerlink" href="#item-type" title="Permalink to this headline">¶</a></h3>
+<p>Specify Item-Type(s) of interest. Case-insensitive,
+supports glob-matching, e.g. <code class="docutils literal"><span class="pre">psscene*</span></code> means <code class="docutils literal"><span class="pre">PSScene3Band</span></code> and
+<code class="docutils literal"><span class="pre">PSScene4Band</span></code>. The <code class="docutils literal"><span class="pre">all</span></code> value specifies every Item-Type.</p>
+</div>
 </div>
 <div class="section" id="general-options">
 <h2>General Options<a class="headerlink" href="#general-options" title="Permalink to this headline">¶</a></h2>
@@ -139,9 +139,9 @@ the number or date to compare against.</p>
 <dd>The number of concurrent downloads when requesting multiple scenes. - Default 4</dd>
 <dt><code class="docutils literal"><span class="pre">--verbose</span></code></dt>
 <dd>Specify verbosity</dd>
-<dt><code class="docutils literal"><span class="pre">--api_key</span></code></dt>
+<dt><code class="docutils literal"><span class="pre">--api-key</span></code></dt>
 <dd>Valid API key - or via ENV variable PL_API_KEY</dd>
-<dt><code class="docutils literal"><span class="pre">--base_url</span></code></dt>
+<dt><code class="docutils literal"><span class="pre">--base-url</span></code></dt>
 <dd>Change the base Planet API URL or ENV PL_API_BASE_URL - Default <a class="reference external" href="https://api.planet.com/">https://api.planet.com/</a></dd>
 <dt><code class="docutils literal"><span class="pre">--version</span></code></dt>
 <dd>Show the version and exit.</dd>
@@ -221,7 +221,7 @@ the number or date to compare against.</p>
 <td>&#160;</td>
 <td>TEXT</td>
 </tr>
-<tr class="row-even"><td>asset_type</td>
+<tr class="row-even"><td>asset-type</td>
 <td>Specify asset type(s) permissions</td>
 <td><a class="reference internal" href="#cli-metavar-asset-type"><span class="std std-ref">ASSET-TYPE</span></a></td>
 </tr>
@@ -229,11 +229,11 @@ the number or date to compare against.</p>
 <td>Specify sort ordering as published/acquired asc/desc</td>
 <td>FIELD ORDER…</td>
 </tr>
-<tr class="row-even"><td>item_type</td>
+<tr class="row-even"><td>item-type</td>
 <td>Specify item type(s)</td>
 <td><a class="reference internal" href="#cli-metavar-item-type"><span class="std std-ref">ITEM-TYPE</span></a></td>
 </tr>
-<tr class="row-odd"><td>filter_json</td>
+<tr class="row-odd"><td>filter-json</td>
 <td><p class="first">Use the specified filter</p>
 <p class="last">DEFAULT: <cite>&#64;-</cite></p>
 </td>
@@ -243,11 +243,11 @@ the number or date to compare against.</p>
 <td>Specify a geometry filter as geojson.</td>
 <td><a class="reference internal" href="#cli-metavar-geom"><span class="std std-ref">GEOM</span></a></td>
 </tr>
-<tr class="row-odd"><td>string_in</td>
+<tr class="row-odd"><td>string-in</td>
 <td>Filter field by string in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
-<tr class="row-even"><td>number_in</td>
+<tr class="row-even"><td>number-in</td>
 <td>Filter field by numeric in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
@@ -294,15 +294,15 @@ the number or date to compare against.</p>
 <td>Disable ANSI control output</td>
 <td>BOOLEAN</td>
 </tr>
-<tr class="row-odd"><td>activate_only</td>
+<tr class="row-odd"><td>activate-only</td>
 <td>Only activate the items. Outputs URLS for downloading.</td>
 <td>BOOLEAN</td>
 </tr>
-<tr class="row-even"><td>dry_run</td>
+<tr class="row-even"><td>dry-run</td>
 <td>Only report the number of items that would be downloaded.</td>
 <td>BOOLEAN</td>
 </tr>
-<tr class="row-odd"><td>search_id</td>
+<tr class="row-odd"><td>search-id</td>
 <td>Use the specified search</td>
 <td>TEXT</td>
 </tr>
@@ -314,11 +314,11 @@ the number or date to compare against.</p>
 <td>Filter field by numeric range.</td>
 <td><a class="reference internal" href="#cli-metavar-field-comp-value"><span class="std std-ref">FIELD COMP VALUE…</span></a></td>
 </tr>
-<tr class="row-even"><td>number_in</td>
+<tr class="row-even"><td>number-in</td>
 <td>Filter field by numeric in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
-<tr class="row-odd"><td>string_in</td>
+<tr class="row-odd"><td>string-in</td>
 <td>Filter field by string in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
@@ -326,13 +326,13 @@ the number or date to compare against.</p>
 <td>Specify a geometry filter as geojson.</td>
 <td><a class="reference internal" href="#cli-metavar-geom"><span class="std std-ref">GEOM</span></a></td>
 </tr>
-<tr class="row-odd"><td>filter_json</td>
+<tr class="row-odd"><td>filter-json</td>
 <td><p class="first">Use the specified filter</p>
 <p class="last">DEFAULT: <cite>&#64;-</cite></p>
 </td>
 <td><a class="reference internal" href="#cli-metavar-filter"><span class="std std-ref">FILTER</span></a></td>
 </tr>
-<tr class="row-even"><td>item_type</td>
+<tr class="row-even"><td>item-type</td>
 <td>Specify item type(s)</td>
 <td><a class="reference internal" href="#cli-metavar-item-type"><span class="std std-ref">ITEM-TYPE</span></a></td>
 </tr>
@@ -340,7 +340,7 @@ the number or date to compare against.</p>
 <td>Specify sort ordering as published/acquired asc/desc</td>
 <td>FIELD ORDER…</td>
 </tr>
-<tr class="row-even"><td>asset_type</td>
+<tr class="row-even"><td>asset-type</td>
 <td>Specify asset type(s)</td>
 <td><a class="reference internal" href="#cli-metavar-asset-type"><span class="std std-ref">ASSET-TYPE</span></a></td>
 </tr>
@@ -368,7 +368,7 @@ the number or date to compare against.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>filter_json</td>
+<tr class="row-even"><td>filter-json</td>
 <td><p class="first">Use the specified filter</p>
 <p class="last">DEFAULT: <cite>&#64;-</cite></p>
 </td>
@@ -378,11 +378,11 @@ the number or date to compare against.</p>
 <td>Specify a geometry filter as geojson.</td>
 <td><a class="reference internal" href="#cli-metavar-geom"><span class="std std-ref">GEOM</span></a></td>
 </tr>
-<tr class="row-even"><td>string_in</td>
+<tr class="row-even"><td>string-in</td>
 <td>Filter field by string in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
-<tr class="row-odd"><td>number_in</td>
+<tr class="row-odd"><td>number-in</td>
 <td>Filter field by numeric in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
@@ -460,7 +460,7 @@ the number or date to compare against.</p>
 <td>Format JSON output</td>
 <td>BOOLEAN</td>
 </tr>
-<tr class="row-even"><td>asset_type</td>
+<tr class="row-even"><td>asset-type</td>
 <td>Specify asset type(s) permissions</td>
 <td><a class="reference internal" href="#cli-metavar-asset-type"><span class="std std-ref">ASSET-TYPE</span></a></td>
 </tr>
@@ -468,11 +468,11 @@ the number or date to compare against.</p>
 <td>Specify sort ordering as published/acquired asc/desc</td>
 <td>FIELD ORDER…</td>
 </tr>
-<tr class="row-even"><td>item_type</td>
+<tr class="row-even"><td>item-type</td>
 <td>Specify item type(s)</td>
 <td><a class="reference internal" href="#cli-metavar-item-type"><span class="std std-ref">ITEM-TYPE</span></a></td>
 </tr>
-<tr class="row-odd"><td>filter_json</td>
+<tr class="row-odd"><td>filter-json</td>
 <td><p class="first">Use the specified filter</p>
 <p class="last">DEFAULT: <cite>&#64;-</cite></p>
 </td>
@@ -482,11 +482,11 @@ the number or date to compare against.</p>
 <td>Specify a geometry filter as geojson.</td>
 <td><a class="reference internal" href="#cli-metavar-geom"><span class="std std-ref">GEOM</span></a></td>
 </tr>
-<tr class="row-odd"><td>string_in</td>
+<tr class="row-odd"><td>string-in</td>
 <td>Filter field by string in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
-<tr class="row-even"><td>number_in</td>
+<tr class="row-even"><td>number-in</td>
 <td>Filter field by numeric in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
@@ -564,11 +564,11 @@ the number or date to compare against.</p>
 <td>Filter field by numeric range.</td>
 <td><a class="reference internal" href="#cli-metavar-field-comp-value"><span class="std std-ref">FIELD COMP VALUE…</span></a></td>
 </tr>
-<tr class="row-odd"><td>number_in</td>
+<tr class="row-odd"><td>number-in</td>
 <td>Filter field by numeric in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
-<tr class="row-even"><td>string_in</td>
+<tr class="row-even"><td>string-in</td>
 <td>Filter field by string in.</td>
 <td><a class="reference internal" href="#cli-metavar-field-values"><span class="std std-ref">FIELD VALUES…</span></a></td>
 </tr>
@@ -576,13 +576,13 @@ the number or date to compare against.</p>
 <td>Specify a geometry filter as geojson.</td>
 <td><a class="reference internal" href="#cli-metavar-geom"><span class="std std-ref">GEOM</span></a></td>
 </tr>
-<tr class="row-even"><td>filter_json</td>
+<tr class="row-even"><td>filter-json</td>
 <td><p class="first">Use the specified filter</p>
 <p class="last">DEFAULT: <cite>&#64;-</cite></p>
 </td>
 <td><a class="reference internal" href="#cli-metavar-filter"><span class="std std-ref">FILTER</span></a></td>
 </tr>
-<tr class="row-odd"><td>item_type</td>
+<tr class="row-odd"><td>item-type</td>
 <td>Specify item type(s)</td>
 <td><a class="reference internal" href="#cli-metavar-item-type"><span class="std std-ref">ITEM-TYPE</span></a></td>
 </tr>
@@ -590,7 +590,7 @@ the number or date to compare against.</p>
 <td>Specify sort ordering as published/acquired asc/desc</td>
 <td>FIELD ORDER…</td>
 </tr>
-<tr class="row-odd"><td>asset_type</td>
+<tr class="row-odd"><td>asset-type</td>
 <td>Specify asset type(s) permissions</td>
 <td><a class="reference internal" href="#cli-metavar-asset-type"><span class="std std-ref">ASSET-TYPE</span></a></td>
 </tr>
